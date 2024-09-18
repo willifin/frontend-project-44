@@ -3,10 +3,12 @@ install:
 
 brain-even:
 		node bin/brain-even.js
-.PHONY: brain-even
 
 brain-games:
 		node bin/brain-games.js
+
+brain-calc:
+		node bin/brain-calc.js
 
 publish:
 		npm publish --dry-run
