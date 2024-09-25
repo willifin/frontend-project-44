@@ -4,11 +4,11 @@ const greeting = ()  => {
 	console.log('Welcome to the Brain Games!');
 	const nameuser = readlineSync.question('May I have your name? ');
 	console.log('Hello, ' + nameuser + '!');
-	return nameuser;
+	return nameuser
 };
 
 export const randomnumbergame = () => {
-	let f = Math.floor(Math.random() * 50);
+	let f = Math.floor(Math.random()*100+1);
 	return f;
 };
 
@@ -25,13 +25,13 @@ export const logics = (explanation, questionforgame, condition, resultfalse) => 
 	let randomlogic = randomnumbergame ();
 	let qfg = questionforgame(randomlogic);
 	const afg = answerforgame();
-	const con = condition(randomlogic, afg);
+	const con = condition(randomlogic, afg, qfg);
 	let result;
 		if (con === 1){
 		   result = 'Correct!';
 		   console.log(result);
 		} else {
-		   result = resultfalse (nameusers, afg, randomlogic);
+		   result = resultfalse (nameusers, afg, con);
 		   console.log(result);
 		   return;
 		}
