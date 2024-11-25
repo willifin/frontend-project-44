@@ -9,6 +9,7 @@
     "brain-even": "bin/brain-even.js",
     "brain-calc": "bin/brain-calc.js",
     "brain-nod": "bin/brain-nod.js",
+    "brain-progression": "bin/brain-progression.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,6 +17,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "lodash": "^4.17.21",
+    "lodash.random": "^3.2.0",
     "readline-sync": "^1.4.10"
   },
   "devDependencies": {
@@ -28,6 +31,7 @@
     "eslint-plugin-jsx-a11y": "^6.9.0",
     "eslint-plugin-react": "^7.35.0",
     "eslint-plugin-react-hooks": "^4.6.2",
+    "esm": "^3.2.25",
     "globals": "^15.9.0"
   }
 }

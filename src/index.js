@@ -8,7 +8,7 @@ const greeting = ()  => {
 };
 
 export const randomnumbergame = () => {
-	let f = Math.floor(Math.random()*100+1);
+	let f = Math.floor(Math.random()*10+5);
 	return f;
 };
 
