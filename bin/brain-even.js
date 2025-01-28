@@ -3,5 +3,5 @@
 //import {questionanswerfirstgame} from '../src/qaf.js';
 //questionanswerfirstgame();
 
-import {even} from '../games/even.js';
-even();
+import {gameEven} from '../games/even.js';
+gameEven();

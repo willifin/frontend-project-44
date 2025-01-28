@@ -6,5 +6,5 @@
 //import {calc} from '../games/calc.js';
 //calc();
 
-import {calc} from '../games/calc_log.js';
-calc();
+import {gameCalc} from '../games/calc_log.js';
+gameCalc();

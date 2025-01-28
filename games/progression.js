@@ -2,19 +2,19 @@
 //import * as _ from "lodash";
 import {logics} from '../src/index.js';
 
-const explanationprogres = () => {
-	const explprogres = 'What number is missing in the progression?';
-	console.log(explprogres);
+const explanationGameProgression = () => {
+	const explanation = 'What number is missing in the progression?';
+	console.log(explanation);
 };
 
 
-const questionforgameprogres = (rn1) => {
-	const length = rn1;
+const questionForGameProgression = (randomNumber1GameProgression) => {
+	const lengthProgression = randomNumber1GameProgression;
 	//const min = 0;
 	//const max = 50;
-	const rn2 = () => {
-		let r = Math.floor(Math.random()*10+1);
-		return r;
+	const randomNumber2GameProgression = () => {
+		let randomNumber2 = Math.floor(Math.random()*10+1);
+		return randomNumber2;
 	};
 	
 	function getRandomInt(min, max) {
@@ -23,56 +23,54 @@ const questionforgameprogres = (rn1) => {
 		return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled);
 	};
 
-	const n = rn2();
-	const gri = getRandomInt(0, 50);
-	const numbers = [...Array(length)]; // создаём массив
-	numbers[0] = gri;
-	for (let i = 1; i < numbers.length; i+=1) { // перебираем элементы
-		numbers[i] = numbers[i-1] + n;
+	const stepProgression = randomNumber2GameProgression();
+	const valueFirstElement = getRandomInt(0, 50);
+	const numbers = [...Array(lengthProgression)]; // создаём массив длинной lengthProgression
+	numbers[0] = valueFirstElement;
+	for (let i = 1; i < numbers.length; i+=1) { // перебираем все элементы массива
+		numbers[i] = numbers[i-1] + stepProgression; // формируем новый элемент массива с шагом stepProgression
 	};
 
-	const rn3 = () => {
-		let f = Math.floor(Math.random()*numbers.length);
-		return f;
+	const randomNumber3GameProgression = () => {
+		let randomNumber3 = Math.floor(Math.random()*numbers.length);
+		return randomNumber3;
 	};
-	const qrn = rn3();
+	const valueIndexHiddenElement = randomNumber3GameProgression();
 
-	const numbersrn3 = numbers[qrn];
-	numbers[qrn] = '..';
-	const qfg = ['Question: ', numbers, numbersrn3];
-	//console.log(numbers);
+	const hiddenElement = numbers[valueIndexHiddenElement];
+	numbers[valueIndexHiddenElement] = '..';
+	const questionForGame = ['Question: ', numbers, hiddenElement];
 	const output = numbers.join(' ');
 	console.log('Question:', output);
-	return qfg;
+	return questionForGame;
 };
 
 
-const conditionprogres = (rn1, a, qfgprogres) => {
-	const v = rn1;
-	const b = Number(a);
-	const randomValues = qfgprogres;
-	const numbersrn3 = randomValues[2];
+const conditionnGameProgression = (randomNumberGameProgression, answerForGameProgression, questionForGameProgression) => {
+	const numberAnswer = Number(answerForGameProgression);
+	const valuesQuestion = questionForGameProgression;
+	const valueHiddenElement = valuesQuestion[2];
 		
-	let resaltprogres;
-	if (b === numbersrn3) {
-	let resultprogres = 1;
-		   return resultprogres;
+	//let resaltprogres;
+	if (numberAnswer === valueHiddenElement) {
+	let resultGameProgression = true;
+		   return resultGameProgression;
 		} else {
-		   let resultprogres = 0;
-		   return [resultprogres, numbersrn3];
+		   let resultGameProgression = false;
+		   return [resultGameProgression, valueHiddenElement];
 		}
 };
 
-const resultfalseprogres = (nameuserfalseprogres, answerfalseprogres, confalseprogres) => {
-	let conditionValues = confalseprogres;
-	let numbersrn3 = conditionValues[1];
+const falseGameResultProgression = (nameUserGameProgression, answerForGameProgression, conditionGameProgression) => {
+	let conditionValues = conditionGameProgression;
+	let valueHiddenElement = conditionValues[1];
 		
-	let rfe = "'" + answerfalseprogres + "' is wrong answer ;(. Correct answer was '" + numbersrn3 + "'. \nLet's try again, " + nameuserfalseprogres + '!';
-	return rfe;
+	let endOfTheGameProgression = "'" + answerForGameProgression + "' is wrong answer ;(. Correct answer was '" + valueHiddenElement + "'. \nLet's try again, " + nameUserGameProgression + '!';
+	return endOfTheGameProgression;
 };
 
-const progression = () => {
-	logics(explanationprogres, questionforgameprogres, conditionprogres, resultfalseprogres);
+const gameProgression = () => {
+	logics(explanationGameProgression, questionForGameProgression, conditionnGameProgression, falseGameResultProgression);
 };
 
-export {progression};
+export {gameProgression};

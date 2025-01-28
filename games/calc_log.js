@@ -1,105 +1,86 @@
 import {logics} from '../src/index.js';
 
-const explanationcalc = () => {
-	const ee = 'What is the result of the expression?';
-	console.log(ee);
+const explanationGameCalc = () => {
+	const explanation = 'What is the result of the expression?';
+	console.log(explanation);
 };
 
-const randomNumberGame2 = () => {
-	let f = Math.floor(Math.random()*50);
-	return f;
-};
-
-const randomOperationGame = (r) => {
-	const randomNumber = r;
-		if (randomNumber < 17) {
-			const randomOperation = '+';
-		  	return randomOperation;
-		} else if (randomNumber >= 17 && randomNumber < 34) {
-		 	const randomOperation = '-';
-		  	return randomOperation;
+const questionForGameCalc = (randomFirstNumber) => {
+	
+	const randomOperationGame = () => {
+		let randomOperation = Math.floor(Math.random()*15)
+		return randomOperation;
+	};
+	
+	let rog = randomOperationGame();
+	
+	const OperationGame = (randomValueOperation) => {
+	let operation;
+		if (randomValueOperation < 5) {
+			operation = '+';
+			return operation;
+		} else if (randomValueOperation >= 5 && randomValueOperation < 10) {
+			operation = '-';
+			return operation;
 		} else {
-		  	const randomOperation = '*';
-		  	return randomOperation;
+			operation = '*';
+			return operation;
 		}
+	};
+
+	let randomOperation =  OperationGame (rog);
+
+	const randomSecondNumberGame = () => {
+		let randomNumber = Math.floor(Math.random()*15);
+		return randomNumber;
+	};
+
+	let randomSecondNumber = randomSecondNumberGame();
+
+	const questionForGame = ['Question: ', + randomFirstNumber, randomOperation, + randomSecondNumber];
+	console.log(questionForGame[0], questionForGame[1], questionForGame[2], questionForGame[3]);
+	return questionForGame;
 };
 
-	
-//let ro = randomOperationGame();
-let rn2 = randomNumberGame2();
-
-
-const questionforgamecalc = (rn1) => {
-	let ro = randomOperationGame(rn1);
-	const qfg = 'Question: ' + rn1 + ' ' + ro + ' ' + ((rn2+rn1)/2);
-	console.log(qfg);
-	//return ro;
-};
-
-const conditioncalc = (rn1, a) => {
-	const b = Number(a);
-	//let randomValues = questionforgamecalc();
-	//let rn11 = randomValues[0],
-	//ro = randomValues[1],
-	//rn2 = randomValues[2];
-	let ro = randomOperationGame(rn1);
-	
-	let resaltcalc;
+const conditioncGameCalc = (randomFirstNumber, answerForGameCalc, questionForGameCalc) => {
+	const b = Number(answerForGameCalc);
+	let rn1 = randomFirstNumber;
+	let valueQuestionForGameCalc = questionForGameCalc;
+	let ro = valueQuestionForGameCalc[2];
+	let rn2 = valueQuestionForGameCalc[3];
+			
 	if (ro === '+'){
-		if (b === rn1 + ((rn2+rn1)/2)) {
-		   let resultcalc = 1;
-		   return resultcalc;
+		if (b === rn1 + rn2) {
+		   return true;
 		} else {
-		   let resultcalc = 0;
-		   return resultcalc;
+		   let a = rn1 + rn2;
+		   return a;
 		}
-	 } else if (ro === '-') {
-		if (b === rn1 - ((rn2+rn1)/2)) {
-		   let resultcalc = 1;
-		   return resultcalc;
-		   }
-		else {
-		   let resultcalc = 0;
-		   return resultcalc;
-		   }
+	} else if (ro === '-') {
+		if (b === rn1 - rn2) {
+		   return true;
+		} else {
+		   let a = rn1 - rn2;
+		   return a;
+		}
 	} else {
-		if (b === rn1 * ((rn2+rn1)/2)) {
-		   let resultcalc = 1;
-		   return resultcalc;
-		   }
-		else {
-		   let resultcalc = 0;
-		   return resultcalc;
-		   }
+		if (b === rn1 * rn2) {
+		   return true;
+		} else {
+		   let a = rn1 * rn2;
+		   return a;
+		}
 	}
 };
 
-const resultfalsecalc = (nameuserfalsecalc, answerfalsecalc, rn1) => {
-	const b = Number(answerfalsecalc);
-	//let randomValues = random();
-	//let rn11 = randomValues[0],
-	//ro = randomValues[1],
-	//rn2 = randomValues[2];
-	let ro = randomOperationGame(rn1);
-
-	let resultoperation;
-	if (ro === '+'){
-		resultoperation = rn1 + ((rn2+rn1)/2);
-		const rfe = "'" + answerfalsecalc + "' is wrong answer ;(. Correct answer was '" + resultoperation + "'. \nLet's try again, " + nameuserfalsecalc + '!';
-		return rfe;
-	} else if (ro === '-'){
-		resultoperation = rn1 - ((rn2+rn1)/2);
-		const rfe = "'" + answerfalsecalc + "' is wrong answer ;(. Correct answer was '" + resultoperation + "'. \nLet's try again, " + nameuserfalsecalc + '!';
-		return rfe;
-	} else {
-		resultoperation = rn1 * ((rn2+rn1)/2);
-		const rfe = "'" + answerfalsecalc + "' is wrong answer ;(. Correct answer was '" + resultoperation + "'. \nLet's try again, " + nameuserfalsecalc + '!';
-		return rfe;
-		}
+const falseGameResultCalc = (nameUserGameCalc, answerForGameCalc, conditionGameCalc) => {
+	let valueConditionGameCalc = conditionGameCalc;
+	
+	let endOfTheGameCalc = "'" + answerForGameCalc + "' is wrong answer ;(. Correct answer was '" + valueConditionGameCalc + "'. \nLet's try again, " + nameUserGameCalc + '!';
+	return endOfTheGameCalc;
 };
 
-
-const calc = () => {
-	logics(explanationcalc, questionforgamecalc, conditioncalc, resultfalsecalc);
+const gameCalc = () => {
+	logics(explanationGameCalc, questionForGameCalc, conditioncGameCalc, falseGameResultCalc);
 };
-export {calc};
+export {gameCalc};

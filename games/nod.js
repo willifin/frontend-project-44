@@ -1,52 +1,52 @@
 import {logics} from '../src/index.js';
 
-const explanationnod = () => {
-	const ee = 'Find the greatest common divisor of given numbers.';
-	console.log(ee);
+const explanationGameNod = () => {
+	const explanation = 'Find the greatest common divisor of given numbers.';
+	console.log(explanation);
 };
 
-const randomNumberGame2 = () => {
-	let f = Math.floor(Math.random()*100+1);
-	return f;
+const randomSecondNumber = () => {
+	let valueRandomSecondNumber = Math.floor(Math.random()*100+1);
+	return valueRandomSecondNumber;
 };
 
-const questionforgamenod = (rn1) => {
-	const qfg = ['Question: ', + rn1, + randomNumberGame2()];;
-	console.log(qfg[0], qfg[1], qfg[2]);
-	return qfg;
+const questionForGameNod = (randomFirstNumber) => {
+	const questionForGame = ['Question: ', + randomFirstNumber, + randomSecondNumber()];;
+	console.log(questionForGame[0], questionForGame[1], questionForGame[2]);
+	return questionForGame;
 };
 
-const conditionnod = (rn1, a, qfgnod) => {
-	const b = Number(a);
-	let randomValues = qfgnod;
-	let rn2 = randomValues[2];
+const conditionGameNod = (randomFirstNumber, answerForGameNod, questionForGameNod) => {
+	const valueAnswer = Number(answerForGameNod);
+	let valueQuestionForGameNod = questionForGameNod;
+	let randomSecondNumber = valueQuestionForGameNod[2];
 		
 	let resaltnod;
-	while (rn1 !== rn2) {
-		if (rn1 > rn2) {
-			rn1 = rn1 - rn2;
+	while (randomFirstNumber !== randomSecondNumber) {
+		if (randomFirstNumber > randomSecondNumber) {
+			randomFirstNumber = randomFirstNumber - randomSecondNumber;
 		} else {
-            		rn2 = rn2 - rn1;
-        	}		   
+			randomSecondNumber = randomSecondNumber - randomFirstNumber;
+        }		   
 	}
-	if (b === rn1) {
-		let resultnod = 1;
-		   return resultnod;
-		} else {
-		   let resultnod = 0;
-		   return [resultnod, rn1];
-		}
+	if (valueAnswer === randomFirstNumber) {
+		resultGameNod = true;
+		return resultGameNod;
+	} else {
+		resultGameNod = false;
+		return [resultGameNod, randomFirstNumber];
+	}
 };
 
-const resultfalsenod = (nameuserfalsenod, answerfalsenod, confalsenod) => {
-	let conditionValues = confalsenod;
-	let rn1 = conditionValues[1];
+const falseGameResultNod = (nameUserGameNod, answerForGameNod, conditionGameNod) => {
+	let valueConditionGameNod = conditionGameNod;
+	let valueNod = valueConditionGameNod[1];
 		
-	let rfe = "'" + answerfalsenod + "' is wrong answer ;(. Correct answer was '" + rn1 + "'. \nLet's try again, " + nameuserfalsenod + '!';
-	return rfe;
+	let endOfTheGameNod = "'" + answerForGameNod + "' is wrong answer ;(. Correct answer was '" + valueNod + "'. \nLet's try again, " + nameUserGameNod + '!';
+	return endOfTheGameNod;
 };
 
-const nod = () => {
-	logics(explanationnod, questionforgamenod, conditionnod, resultfalsenod);
+const gameNod = () => {
+	logics(explanationGameNod, questionForGameNod, conditionGameNod, falseGameResultNod);
 };
-export {nod};
+export {gameNod};

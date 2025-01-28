@@ -1,46 +1,40 @@
 import {logics} from '../src/index.js';
 
-const explanationeven = () => {
-	const ee = 'Answer "yes" if the number is even, otherwise answer "no".';
-	console.log(ee);
+const explanationGameEven = () => {
+	const explanation = 'Answer "yes" if the number is even, otherwise answer "no".';
+	console.log(explanation);
 };
 
-const questionforgameeven = (r) => {
-	let qfg = 'Question: ' + r;
-	console.log(qfg);	
+const questionForGameEven = (randomNumberGameEven) => {
+	let questionForGame = 'Question: ' + randomNumberGameEven;
+	console.log(questionForGame);	
 	return;
 };
 
-const conditioneven = (r, a) => {
-	let resalteven;
-	if (((r % 2 === 0) && (a === 'yes')) || ((r % 2 !== 0) && (a === 'no'))){
-		   let resulteven = 1;
-		   return resulteven;
+const conditionGameEven = (randomNumberGameEven, answerForGameEven) => {
+	if (((randomNumberGameEven % 2 === 0) && (answerForGameEven === 'yes')) || ((randomNumberGameEven % 2 !== 0) && (answerForGameEven === 'no'))){
+		   let resultGameEven = true;
+		   return resultGameEven;
 	 } else {
-		   let resulteven = 0;
-		   return resulteven;
+		   let resultGameEven = false;
+		   return resultGameEven;
 	}
 };
 
-const resultfalseeven = (nameuserfalseeven, answerfalseeven, r) => {
-	if (answerfalseeven === 'yes'){
-		const rfe = "'yes' is wrong answer ;(. Correct answer was 'no'. \nLet's try again, " + nameuserfalseeven + '!';
-		return rfe;
-	} else if (answerfalseeven === 'no'){
-		const rfe = "'no' is wrong answer ;(. Correct answer was 'yes'. \nLet's try again, " + nameuserfalseeven + '!';
-		return rfe;
+const falseGameResultEven = (nameUserGameEven, answerForGameEven, conditionGameEven) => {
+	if (answerForGameEven === 'yes'){
+		const endOfTheGameEven = "'yes' is wrong answer ;(. Correct answer was 'no'. \nLet's try again, " + nameUserGameEven + '!';
+		return endOfTheGameEven;
+	} else if (answerForGameEven === 'no'){
+		const endOfTheGameEven = "'no' is wrong answer ;(. Correct answer was 'yes'. \nLet's try again, " + nameUserGameEven + '!';
+		return endOfTheGameEven;
 	} else {
-		if (r % 2 === 0){
-			const rfe = "'" + answerfalseeven + "' is wrong answer ;(. Correct answer was 'yes'. \nLet's try again, " + nameuserfalseeven + '!';
-			return rfe;
-		} else {
-			const rfe = "'" + answerfalseeven + "' is wrong answer ;(. Correct answer was 'no'. \nLet's try again, " + nameuserfalseeven + '!';
-			return rfe;
-		}
+			const endOfTheGameEven = "'" + answerForGameEven + "' is wrong answer ;(. Correct answer was 'yes' or 'no'. \nLet's try again, " + nameUserGameEven + '!';
+			return endOfTheGameEven;
 	}
 };
 
-const even = () => {
-	logics(explanationeven, questionforgameeven, conditioneven, resultfalseeven);
+const gameEven = () => {
+	logics(explanationGameEven, questionForGameEven, conditionGameEven, falseGameResultEven);
 };
-export {even};
+export {gameEven};

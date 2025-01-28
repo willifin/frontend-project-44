@@ -1,22 +1,22 @@
 import {logics} from '../src/index.js';
 
-const explanationprime = () => {
-	const ee = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-	console.log(ee);
+const explanationGamePrime = () => {
+	const explanation = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+	console.log(explanation);
 };
 
 
-const questionforgameprime = (rn) => {
-	const qfg = ['Question: ', + rn];
-	console.log(qfg[0], qfg[1]);
-	return qfg[1];
+const questionForGamePrime = (randomNumberGamePrime) => {
+	const questionForGame = ['Question: ', + randomNumberGamePrime];
+	console.log(questionForGame[0], questionForGame[1]);
+	return questionForGame[1];
 };
 
-const conditionprime = (rn, a, qfgprime) => {
-	const prime = (qfgprime) => {
-		if (qfgprime > 1) {
-			for (let i = 2; i < qfgprime; i++) {
-				if (qfgprime % i === 0) {
+const conditionGamePrime = (randomNumberGamePrime, answerForGamePrime, questionForGamePrime) => {
+	const prime = (questionForGamePrime) => {
+		if (questionForGamePrime > 1) {
+			for (let i = 2; i < questionForGamePrime; i++) {
+				if (questionForGamePrime % i === 0) {
 					return false;
 				}
 			}
@@ -26,35 +26,31 @@ const conditionprime = (rn, a, qfgprime) => {
 		}
 	};
 	
-	let resaltprime;
-	if ((prime(qfgprime) === true)&&(a === 'yes')) {
-		resaltprime = 1;
-		return resaltprime;
-	} else if ((prime(qfgprime) === false)&&(a === 'no')) {
-		resaltprime = 1;
-		return resaltprime;
-	} else if ((prime(qfgprime) === true)&&(a === 'no')) {
-		resaltprime = 0;
-		return resaltprime;
-	} else if ((prime(qfgprime) === false)&&(a === 'yes')) {
-		resaltprime = 0;
-		return resaltprime;
+	let resaltGamePrime;
+	if (((prime(questionForGamePrime) === true)&&(answerForGamePrime === 'yes'))||((prime(questionForGamePrime) === false)&&(answerForGamePrime === 'no'))) {
+		resaltGamePrime = true;
+		return resaltGamePrime;
+	} else {
+		resaltGamePrime = false;
+		return resaltGamePrime;
 	}
 	
 };
 
-const resultfalseprime = (nameuserfalseprime, answerfalseprime, confalseprime) => {
-	let c = confalseprime;
-	if (answerfalseprime === 'yes'){
-		const rfe = "'yes' is wrong answer ;(. Correct answer was 'no'. \nLet's try again, " + nameuserfalseprime + '!';
-		return rfe;
-	} else if (answerfalseprime === 'no'){
-		const rfe = "'no' is wrong answer ;(. Correct answer was 'yes'. \nLet's try again, " + nameuserfalseprime + '!';
-		return rfe;
+const falseGameResultPrime = (nameUserGamePrime, answerForGamePrime) => {
+	if (answerForGamePrime === 'yes'){
+		const endOfTheGamePrime = "'yes' is wrong answer ;(. Correct answer was 'no'. \nLet's try again, " + nameUserGamePrime + '!';
+		return endOfTheGamePrime;
+	} else if (answerForGamePrime === 'no'){
+		const endOfTheGamePrime = "'no' is wrong answer ;(. Correct answer was 'yes'. \nLet's try again, " + nameUserGamePrime + '!';
+		return endOfTheGamePrime;
+	} else {
+		const endOfTheGamePrime = "'" + answerForGamePrime + "' is wrong answer ;(. Correct answer was 'yes' or 'no'. \nLet's try again, " + nameUserGamePrime + '!';
+		return endOfTheGamePrime;
 	}
 };
 
-const prime = () => {
-	logics(explanationprime, questionforgameprime, conditionprime, resultfalseprime);
+const gamePrime = () => {
+	logics(explanationGamePrime, questionForGamePrime, conditionGamePrime, falseGameResultPrime);
 };
-export {prime};
+export {gamePrime};
