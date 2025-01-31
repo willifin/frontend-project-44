@@ -1,1 +1,7 @@
 /node_modules/
+
+/src/afg.js
+/src/calc.js
+/src/qaf.js
+/src/rng.js
+/src/rog.js
