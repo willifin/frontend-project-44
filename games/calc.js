@@ -37,8 +37,8 @@ const questionForGameCalc = (randomFirstNumber) => {
 
 	let randomSecondNumber = randomSecondNumberGame();
 
-	const questionForGame = [randomFirstNumber, randomOperation, + randomSecondNumber];
-	console.log('Question: ', questionForGame[0], questionForGame[1], questionForGame[2]);
+	const questionForGame = ['Question: ', + randomFirstNumber, OperationGame(), + randomSecondNumber];
+	console.log(questionForGame[0], questionForGame[1], questionForGame[2], questionForGame[3]);
 	return questionForGame;
 };
 
@@ -46,8 +46,8 @@ const conditioncGameCalc = (randomFirstNumber, answerForGameCalc, questionForGam
 	const b = Number(answerForGameCalc);
 	let rn1 = randomFirstNumber;
 	let valueQuestionForGameCalc = questionForGameCalc;
-	let ro = valueQuestionForGameCalc[1];
-	let rn2 = valueQuestionForGameCalc[2];
+	let ro = valueQuestionForGameCalc[2];
+	let rn2 = valueQuestionForGameCalc[3];
 			
 	if (ro === '+'){
 		if (b === rn1 + rn2) {
