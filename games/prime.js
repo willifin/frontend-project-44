@@ -7,16 +7,16 @@ const explanationGamePrime = () => {
 
 
 const questionForGamePrime = (randomNumberGamePrime) => {
-	const questionForGame = ['Question: ', + randomNumberGamePrime];
-	console.log(questionForGame[0], questionForGame[1]);
-	return questionForGame[1];
+	const questionForGame = 'Question: ' + randomNumberGamePrime;
+	console.log(questionForGame);
+	return;
 };
 
 const conditionGamePrime = (randomNumberGamePrime, answerForGamePrime, questionForGamePrime) => {
-	const prime = (questionForGamePrime) => {
-		if (questionForGamePrime > 1) {
-			for (let i = 2; i < questionForGamePrime; i++) {
-				if (questionForGamePrime % i === 0) {
+	const prime = (randomNumberGamePrime) => {
+		if (randomNumberGamePrime > 1) {
+			for (let i = 2; i < randomNumberGamePrime; i++) {
+				if (randomNumberGamePrime % i === 0) {
 					return false;
 				}
 			}
@@ -27,7 +27,7 @@ const conditionGamePrime = (randomNumberGamePrime, answerForGamePrime, questionF
 	};
 	
 	let resaltGamePrime;
-	if (((prime(questionForGamePrime) === true)&&(answerForGamePrime === 'yes'))||((prime(questionForGamePrime) === false)&&(answerForGamePrime === 'no'))) {
+	if (((prime(randomNumberGamePrime) === true)&&(answerForGamePrime === 'yes'))||((prime(randomNumberGamePrime) === false)&&(answerForGamePrime === 'no'))) {
 		resaltGamePrime = true;
 		return resaltGamePrime;
 	} else {
