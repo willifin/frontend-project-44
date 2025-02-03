@@ -5,23 +5,28 @@ const explanationGameNod = () => {
 	console.log(explanation);
 };
 
-const randomSecondNumber = () => {
+const randomSecondNumberGame = () => {
 	let valueRandomSecondNumber = Math.floor(Math.random()*100+1);
 	return valueRandomSecondNumber;
 };
 
+
+
 const questionForGameNod = (randomFirstNumber) => {
-	const questionForGame = ['Question: ', + randomFirstNumber, + randomSecondNumber()];;
-	console.log(questionForGame[0], questionForGame[1], questionForGame[2]);
+	let randomSecondNumber = randomSecondNumberGame();
+	const questionForGame = [randomFirstNumber, + randomSecondNumber];;
+	const randomFirstNumberString = String(randomFirstNumber) + ' ';
+	let questionForGameLog = 'Question: ' + randomFirstNumberString + randomSecondNumber;
+	console.log(questionForGameLog);
 	return questionForGame;
 };
 
 const conditionGameNod = (randomFirstNumber, answerForGameNod, questionForGameNod) => {
 	const valueAnswer = Number(answerForGameNod);
 	let valueQuestionForGameNod = questionForGameNod;
-	let randomSecondNumber = valueQuestionForGameNod[2];
+	let randomSecondNumber = valueQuestionForGameNod[1];
 		
-	let resaltnod;
+	let resultGameNod;
 	while (randomFirstNumber !== randomSecondNumber) {
 		if (randomFirstNumber > randomSecondNumber) {
 			randomFirstNumber = randomFirstNumber - randomSecondNumber;
