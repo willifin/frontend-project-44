@@ -17,13 +17,13 @@ const questionForGameCalc = (randomFirstNumber) => {
 	const OperationGame = (randomValueOperation) => {
 	let operation;
 		if (randomValueOperation < 5) {
-			operation = '+';
+			operation = ' + ';
 			return operation;
 		} else if (randomValueOperation >= 5 && randomValueOperation < 10) {
-			operation = '-';
+			operation = ' - ';
 			return operation;
 		} else {
-			operation = '*';
+			operation = ' * ';
 			return operation;
 		}
 	};
@@ -38,10 +38,8 @@ const questionForGameCalc = (randomFirstNumber) => {
 	let randomSecondNumber = randomSecondNumberGame();
 
 	const questionForGame = [randomFirstNumber, randomOperation, + randomSecondNumber];
-	const q0 = questionForGame[0];
-	const q1 = questionForGame[1];
-	const q2 = questionForGame[2];
-	console.log('Question: ', q0, q1, q2);
+	let questionForGameLog = 'Question: ' + randomFirstNumber + randomOperation + randomSecondNumber;
+	console.log(questionForGameLog);
 	return questionForGame;
 };
 
@@ -52,14 +50,14 @@ const conditioncGameCalc = (randomFirstNumber, answerForGameCalc, questionForGam
 	let ro = valueQuestionForGameCalc[1];
 	let rn2 = valueQuestionForGameCalc[2];
 			
-	if (ro === '+'){
+	if (ro === ' + '){
 		if (b === rn1 + rn2) {
 		   return true;
 		} else {
 		   let a = rn1 + rn2;
 		   return a;
 		}
-	} else if (ro === '-') {
+	} else if (ro === ' - ') {
 		if (b === rn1 - rn2) {
 		   return true;
 		} else {
