@@ -1,7 +1,4 @@
 #!/usr/bin/env node
+import { gameEven } from '../games/even.js';
 
-//import {questionanswerfirstgame} from '../src/qaf.js';
-//questionanswerfirstgame();
-
-import {gameEven} from '../games/even.js';
 gameEven();
