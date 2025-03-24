@@ -78,4 +78,5 @@ const falseGameResultCalc = (nameUserGameCalc, answerForGameCalc, conditionGameC
 const gameCalc = () => {
   logics(explanationGameCalc, questionForGameCalc, conditioncGameCalc, falseGameResultCalc);
 };
-export { gameCalc };
+
+export default gameCalc;

@@ -47,4 +47,4 @@ const falseGameResultPrime = (nameUserGamePrime, answerForGamePrime) => {
 const gamePrime = () => {
   logics(explanationGamePrime, questionForGamePrime, conditionGamePrime, falseGameResultPrime);
 };
-export { gamePrime };
+export default gamePrime;

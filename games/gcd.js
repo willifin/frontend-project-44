@@ -19,9 +19,9 @@ const questionForGameNod = (randomFirstNumber) => {
   return questionForGame;
 };
 
-const conditionGameNod = (randomFirstNumber, answerForGameNod, questionForGameNod) => {
+const conditionGameNod = (randomFirstNumber, answerForGameNod, conditionQuestionForGameNod) => {
   const valueAnswer = Number(answerForGameNod);
-  const valueQuestionForGameNod = questionForGameNod;
+  const valueQuestionForGameNod = conditionQuestionForGameNod;
   let randomSecondNumber = valueQuestionForGameNod[1];
 
   let resultGameNod;
@@ -40,8 +40,8 @@ const conditionGameNod = (randomFirstNumber, answerForGameNod, questionForGameNo
   return [resultGameNod, randomFirstNumber];
 };
 
-const falseGameResultNod = (nameUserGameNod, answerForGameNod, conditionGameNod) => {
-  const valueConditionGameNod = conditionGameNod;
+const falseGameResultNod = (nameUserGameNod, answerForGameNod, falseConditionGameNod) => {
+  const valueConditionGameNod = falseConditionGameNod;
   const valueNod = valueConditionGameNod[1];
 
   const endOfTheGameNod = `'${answerForGameNod}' is wrong answer ;(. Correct answer was '${valueNod}'. \nLet's try again, ${nameUserGameNod}!`;
@@ -51,4 +51,4 @@ const falseGameResultNod = (nameUserGameNod, answerForGameNod, conditionGameNod)
 const gameNod = () => {
   logics(explanationGameNod, questionForGameNod, conditionGameNod, falseGameResultNod);
 };
-export { gameNod };
+export default gameNod;

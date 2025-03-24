@@ -69,4 +69,4 @@ const gameProgression = () => {
   logics(explanationGameProgression, questionForGameProgression, conditionnGameProgression, falseGameResultProgression);
 };
 
-export { gameProgression };
+export default gameProgression;

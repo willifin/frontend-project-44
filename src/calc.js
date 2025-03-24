@@ -1,28 +1,28 @@
-import randomnumbergame from '../src/rng.js';
-import answerfirstgame from '../src/afg.js';
-import {questionanswer} from '../src/cli.js';
-import randomOperationGame from '../src/rog.js';
+import randomnumbergame from './rng.js';
+import answerfirstgame from './afg.js';
+import { questionanswer } from './cli.js';
+import randomOperationGame from './rog.js';
 
-const name = questionanswer ();
+const name = questionanswer();
 console.log('What is the result of the expression?');
 
-export const calcgame = ()  => {
+export const calcgame = () => {
   for (let i = 0; i < 3; i += 1) {
-  const rn1 = randomnumbergame();
-  const rn2 = randomnumbergame();
-  const ro = randomOperationGame();
-  console.log('Question: ' + rn1 + ' ' + ro + ' ' + rn2);
-  const a = answerfirstgame();
-  const b = Number(a);
-  let result;
-  let resultoperation;
+    const rn1 = randomnumbergame();
+    const rn2 = randomnumbergame();
+    const ro = randomOperationGame();
+    console.log(`Question: ${rn1} ${ro} ${rn2}`);
+    const a = answerfirstgame();
+    const b = Number(a);
+    let result;
+    let resultoperation;
     if (ro === '+') {
       if (b === rn1 + rn2) {
         result = 'Correct!';
         console.log(result);
       } else {
         resultoperation = rn1 + rn2;
-        result = "'" + a + "' is wrong answer ;(. Correct answer was '" + resultoperation +"'. \nLet's try again, " + name + '!';
+        result = `'${a}' is wrong answer ;(. Correct answer was '${resultoperation}'. \nLet's try again, ${name}!`;
         console.log(result);
         return;
       }
@@ -31,23 +31,21 @@ export const calcgame = ()  => {
         result = 'Correct!';
         console.log(result);
       } else {
-		resultoperation = rn1 - rn2;
-        result = "'" + a + "' is wrong answer ;(. Correct answer was '" + resultoperation +"'. \nLet's try again, " + name + '!';
+        resultoperation = rn1 - rn2;
+        result = `'${a}' is wrong answer ;(. Correct answer was '${resultoperation}'. \nLet's try again, ${name}!`;
         console.log(result);
         return;
       }
-	} else {
-      if (b === rn1 * rn2) {
-        result = 'Correct!';
-        console.log(result);
-      } else {
-        resultoperation = rn1 * rn2;
-        result = "'" + a + "' is wrong answer ;(. Correct answer was '" + resultoperation +"'. \nLet's try again, " + name + '!';
-        console.log(result);
-        return;
-      }
+    } else if (b === rn1 * rn2) {
+      result = 'Correct!';
+      console.log(result);
+    } else {
+      resultoperation = rn1 * rn2;
+      result = `'${a}' is wrong answer ;(. Correct answer was '${resultoperation}'. \nLet's try again, ${name}!`;
+      console.log(result);
+      return;
     }
   }
 
-  return console.log('Congratulations, ' + name + '!');
+  return console.log(`Congratulations, ${name}!`);
 };

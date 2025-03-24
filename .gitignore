@@ -6,3 +6,6 @@
 /src/rng.js
 /src/rog.js
 /games/calc_old.js
+
+[core]
+    autocrlf = false
