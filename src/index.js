@@ -19,6 +19,7 @@ const answerForGame = () => {
 
 export const logics = (explanationGame, questionForGame, conditionGame, falseGameResultLogics) => {
   const nameUserGameLogics = greetingGame();
+  explanationGame();
   for (let i = 0; i < 3; i += 1) {
     const randomNumberGameLog = randomNumberGame();
     const questionGameLog = questionForGame(randomNumberGameLog);

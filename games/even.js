@@ -34,4 +34,5 @@ const falseGameResultEven = (nameUserGameEven, answerForGameEven) => {
 const gameEven = () => {
   logics(explanationGameEven, questionForGameEven, conditionGameEven, falseGameResultEven);
 };
+
 export default gameEven;
