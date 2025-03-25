@@ -1,11 +1,11 @@
 import randomnumbergame from './rng.js';
 import answerfirstgame from './afg.js';
-import { questionanswer } from './cli.js';
+import greeting from './cli.js';
 
-const name = questionanswer();
+const name = greeting();
 console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
-export const questionanswerfirstgame = () => {
+const questionanswerfirstgame = () => {
   for (let i = 0; i < 3; i += 1) {
     const r = randomnumbergame();
     console.log(`Question: ${r}`);
@@ -21,5 +21,7 @@ export const questionanswerfirstgame = () => {
     }
   }
 
-  return console.log(`Congratulations, ${name}!`);
+  console.log(`Congratulations, ${name}!`);
 };
+
+export default questionanswerfirstgame;

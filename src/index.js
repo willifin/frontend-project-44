@@ -19,23 +19,21 @@ const answerForGame = () => {
 
 export const logics = (explanationGame, questionForGame, conditionGame, falseGameResultLogics) => {
   const nameUserGameLogics = greetingGame();
-  const explanationGameLogic = explanationGame();
-
   for (let i = 0; i < 3; i += 1) {
-    const randomNumberGameLogics = randomNumberGame();
-    const questionForGameLogics = questionForGame(randomNumberGameLogics);
-    const answerForGameLogics = answerForGame();
-    const conditionGameLogics = conditionGame(randomNumberGameLogics, answerForGameLogics, questionForGameLogics);
+    const randomNumberGameLog = randomNumberGame();
+    const questionGameLog = questionForGame(randomNumberGameLog);
+    const answerGameLog = answerForGame();
+    const conditionGameLog = conditionGame(randomNumberGameLog, answerGameLog, questionGameLog);
     let resultGameLogics;
-    if (conditionGameLogics === true) {
+    if (conditionGameLog === true) {
       resultGameLogics = 'Correct!';
       console.log(resultGameLogics);
     } else {
-      resultGameLogics = falseGameResultLogics(nameUserGameLogics, answerForGameLogics, conditionGameLogics);
+      resultGameLogics = falseGameResultLogics(nameUserGameLogics, answerGameLog, conditionGameLog);
       console.log(resultGameLogics);
       return;
     }
   }
 
-  return console.log(`Congratulations, ${nameUserGameLogics}!`);
+  console.log(`Congratulations, ${nameUserGameLogics}!`);
 };

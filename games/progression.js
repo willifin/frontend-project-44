@@ -2,12 +2,12 @@
 // import * as _ from "lodash";
 import { logics } from '../src/index.js';
 
-const explanationGameProgression = () => {
+const explanationGameProg = () => {
   const explanation = 'What number is missing in the progression?';
   console.log(explanation);
 };
 
-const questionForGameProgression = (randomNumber1GameProgression) => {
+const questionForGameProg = (randomNumber1GameProgression) => {
   const lengthProgression = randomNumber1GameProgression;
   // const min = 0;
   // const max = 50;
@@ -44,9 +44,9 @@ const questionForGameProgression = (randomNumber1GameProgression) => {
   return questionForGame;
 };
 
-const conditionnGameProgression = (randomNumberGameProgression, answerForGameProgression, questionForGameProgression) => {
-  const numberAnswer = Number(answerForGameProgression);
-  const valuesQuestion = questionForGameProgression;
+const conditionnGameProg = (randomNumberGameProg, answerForGameProg, questionForGameProgCond) => {
+  const numberAnswer = Number(answerForGameProg);
+  const valuesQuestion = questionForGameProgCond;
   const valueHiddenElement = valuesQuestion[2];
 
   if (numberAnswer === valueHiddenElement) {
@@ -57,16 +57,16 @@ const conditionnGameProgression = (randomNumberGameProgression, answerForGamePro
   return [resultGameProgression, valueHiddenElement];
 };
 
-const falseGameResultProgression = (nameUserGameProgression, answerForGameProgression, conditionGameProgression) => {
-  const conditionValues = conditionGameProgression;
+const falseGameResultProg = (nameUserGameProg, answerForGameProg, conditionGameProg) => {
+  const conditionValues = conditionGameProg;
   const valueHiddenElement = conditionValues[1];
 
-  const endOfTheGameProgression = `'${answerForGameProgression}' is wrong answer ;(. Correct answer was '${valueHiddenElement}'. \nLet's try again, ${nameUserGameProgression}!`;
+  const endOfTheGameProgression = `'${answerForGameProg}' is wrong answer ;(. Correct answer was '${valueHiddenElement}'. \nLet's try again, ${nameUserGameProg}!`;
   return endOfTheGameProgression;
 };
 
 const gameProgression = () => {
-  logics(explanationGameProgression, questionForGameProgression, conditionnGameProgression, falseGameResultProgression);
+  logics(explanationGameProg, questionForGameProg, conditionnGameProg, falseGameResultProg);
 };
 
 export default gameProgression;

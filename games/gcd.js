@@ -19,25 +19,27 @@ const questionForGameNod = (randomFirstNumber) => {
   return questionForGame;
 };
 
-const conditionGameNod = (randomFirstNumber, answerForGameNod, conditionQuestionForGameNod) => {
+const conditionGameNod = (randomFirstNumberNod, answerForGameNod, conditionQuestionForGameNod) => {
   const valueAnswer = Number(answerForGameNod);
   const valueQuestionForGameNod = conditionQuestionForGameNod;
   let randomSecondNumber = valueQuestionForGameNod[1];
-
+  
   let resultGameNod;
-  while (randomFirstNumber !== randomSecondNumber) {
-    if (randomFirstNumber > randomSecondNumber) {
-      randomFirstNumber -= randomSecondNumber;
+  while (randomFirstNumberNod !== randomSecondNumber) {
+    if (randomFirstNumberNod > randomSecondNumber) {
+      // randomFirstNumber -= randomSecondNumber;
+      randomFirstNumberNod = randomFirstNumberNod - randomSecondNumber;
     } else {
-      randomSecondNumber -= randomFirstNumber;
+      // randomSecondNumber -= randomFirstNumber;
+      randomSecondNumber = randomSecondNumber - randomFirstNumberNod;
     }
   }
-  if (valueAnswer === randomFirstNumber) {
+  if (valueAnswer === randomFirstNumberNod) {
     resultGameNod = true;
     return resultGameNod;
   }
   resultGameNod = false;
-  return [resultGameNod, randomFirstNumber];
+  return [resultGameNod, randomFirstNumberNod];
 };
 
 const falseGameResultNod = (nameUserGameNod, answerForGameNod, falseConditionGameNod) => {

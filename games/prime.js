@@ -11,9 +11,9 @@ const questionForGamePrime = (randomNumberGamePrime) => {
 };
 
 const conditionGamePrime = (randomNumberGamePrime, answerForGamePrime) => {
-  const prime = (randomNumberGamePrime) => {
+  const prime = () => {
     if (randomNumberGamePrime > 1) {
-      for (let i = 2; i < randomNumberGamePrime; i++) {
+      for (let i = 2; i < randomNumberGamePrime; i += 1) {
         if (randomNumberGamePrime % i === 0) {
           return false;
         }

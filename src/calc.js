@@ -1,12 +1,12 @@
 import randomnumbergame from './rng.js';
 import answerfirstgame from './afg.js';
-import { questionanswer } from './cli.js';
+import greeting from './cli.js';
 import randomOperationGame from './rog.js';
 
-const name = questionanswer();
+const name = greeting();
 console.log('What is the result of the expression?');
 
-export const calcgame = () => {
+const calcgame = () => {
   for (let i = 0; i < 3; i += 1) {
     const rn1 = randomnumbergame();
     const rn2 = randomnumbergame();
@@ -47,5 +47,7 @@ export const calcgame = () => {
     }
   }
 
-  return console.log(`Congratulations, ${name}!`);
+  console.log(`Congratulations, ${name}!`);
 };
+
+export default calcgame;
